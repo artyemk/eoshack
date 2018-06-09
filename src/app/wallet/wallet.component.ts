@@ -9,18 +9,25 @@ let CryptoJS = require('crypto-js');
 })
 export class WalletComponent implements OnInit {
 
+  errorStr: string;
+
   constructor(
     public api: ApiService
   ) { }
 
   ngOnInit() {
+    let enteredPassword = prompt('Enter your password');
+    let encodedPrivateKey = localStorage.getItem('eos_password');
+    let bytes = CryptoJS.AES.decrypt(encodedPrivateKey, enteredPassword);
+    let decodedPrivateKey = bytes.toString(CryptoJS.enc.Utf8);
+
     this.api.getBalance({
-      privateKey: CryptoJS.AES.decrypt(localStorage.getItem('eos_password'), prompt('Enter your password')),
+      privateKey: decodedPrivateKey,
       userName: localStorage.getItem('eos_username')
     }).then((res) => {
 
     }, (res) => {
-      console.log(res);
+      this.errorStr = res.errors[0];
     });
   }
 

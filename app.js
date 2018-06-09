@@ -71,6 +71,7 @@ router.route('/get-balance').get(function(req, res) {
 		console.log('SUCCESS =============');
 		console.log(res);
 	}, (err) => {
+		console.log('========================');
 		res.json({
 			//errors: [err.statusText]
 			errors: ['There is no such account']
@@ -90,7 +91,6 @@ function getBalance(user) {
 		})
 	})
 }
-
 
 app.use('/api', router);
 

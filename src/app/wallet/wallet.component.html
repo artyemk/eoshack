@@ -1,1 +1,7 @@
-
+<div class="block">
+  <div class="section">
+    <div *ngIf="errorStr" class="section__row">
+      <div class="section__error" [innerText]="errorStr"></div>
+    </div>
+  </div>
+</div>

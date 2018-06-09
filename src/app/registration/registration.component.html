@@ -1,52 +1,57 @@
-<div class="block">
-  <form *ngIf="step === 1" class="section" (submit)="onUsernameSubmit($event)">
-    <div class="section__row">
-      <input class="input" type="text" [(ngModel)]="userName" (ngModelChange)="clearError()" name="username">
+<div class="registration">
+  <div class="registration__left"></div>
+  <div class="registration__right">
+    <div class="block">
+      <form *ngIf="step === 1" class="section" (submit)="onUsernameSubmit($event)">
+        <div class="section__row">
+          <input class="input" type="text" [(ngModel)]="userName" (ngModelChange)="clearError()" name="username">
+        </div>
+        <div class="section__row">
+          <button class="button button-mode-1" type="submit">Next</button>
+        </div>
+        <div *ngIf="errorStr" class="section__row">
+          <div class="section__error" [innerText]="errorStr"></div>
+        </div>
+      </form>
+      <form *ngIf="step === 2" class="section" (submit)="privateKeySubmit($event)">
+        <div class="section__row">
+          Copy your private key and save it to a safe place
+        </div>
+        <div class="section__row">
+          <div class="registration__code" [innerText]="privateKey"></div>
+        </div>
+        <div class="section__row">
+          <button class="button button-mode-1" type="submit">Next</button>
+        </div>
+      </form>
+      <form *ngIf="step === 3" class="section" (submit)="checkPrivateKeySubmit($event)">
+        <div class="section__row">
+          Enter your private key
+        </div>
+        <div class="section__row">
+          <input class="input" type="text" [(ngModel)]="checkPrivateKey" name="checkPrivateKey">
+        </div>
+        <div class="section__row">
+          <button class="button button-mode-1" type="submit">Next</button>
+        </div>
+        <div *ngIf="errorStr" class="section__row">
+          <div class="section__error" [innerText]="errorStr"></div>
+        </div>
+      </form>
+      <form *ngIf="step === 4" class="section" (submit)="specifyPasswordSubmit($event)">
+        <div class="section__row">
+          Specify password
+        </div>
+        <div class="section__row">
+          <input class="input" type="password" [(ngModel)]="password" (ngChangeModel)="clearError()" name="password">
+        </div>
+        <div class="section__row">
+          <button class="button button-mode-1" type="submit">Finish</button>
+        </div>
+        <div *ngIf="errorStr" class="section__row">
+          <div class="section__error" [innerText]="errorStr"></div>
+        </div>
+      </form>
     </div>
-    <div class="section__row">
-      <button class="button button-mode-1" type="submit">Next</button>
-    </div>
-    <div *ngIf="errorStr" class="section__row">
-      <div class="section__error" [innerText]="errorStr"></div>
-    </div>
-  </form>
-  <form *ngIf="step === 2" class="section" (submit)="privateKeySubmit($event)">
-    <div class="section__row">
-      Copy your private key and save it to a safe place
-    </div>
-    <div class="section__row">
-      <input class="input" type="text" [(ngModel)]="privateKey" name="privateKey" readonly="true">
-    </div>
-    <div class="section__row">
-      <button class="button button-mode-1" type="submit">Next</button>
-    </div>
-  </form>
-  <form *ngIf="step === 3" class="section" (submit)="checkPrivateKeySubmit($event)">
-    <div class="section__row">
-      Enter your private key
-    </div>
-    <div class="section__row">
-      <input class="input" type="text" [(ngModel)]="checkPrivateKey" name="checkPrivateKey">
-    </div>
-    <div class="section__row">
-      <button class="button button-mode-1" type="submit">Next</button>
-    </div>
-    <div *ngIf="errorStr" class="section__row">
-      <div class="section__error" [innerText]="errorStr"></div>
-    </div>
-  </form>
-  <form *ngIf="step === 4" class="section" (submit)="specifyPasswordSubmit($event)">
-    <div class="section__row">
-      Specify password
-    </div>
-    <div class="section__row">
-      <input class="input" type="password" [(ngModel)]="password" (ngChangeModel)="clearError()" name="password">
-    </div>
-    <div class="section__row">
-      <button class="button button-mode-1" type="submit">Finish</button>
-    </div>
-    <div *ngIf="errorStr" class="section__row">
-      <div class="section__error" [innerText]="errorStr"></div>
-    </div>
-  </form>
+  </div>
 </div>

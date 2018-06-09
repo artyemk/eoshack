@@ -9,12 +9,14 @@ import { ApiService } from "./api.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { WalletComponent } from './wallet/wallet.component';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    WalletComponent
+    WalletComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
