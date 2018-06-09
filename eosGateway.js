@@ -45,13 +45,6 @@ function initializeUser(name){
   })
 }
 
-function getBalance(obj, token_contract){
-  return new Promise(function(resolve,reject){
-    obj.eos_obj.getCurrencyBalance({
-      'code':token_contract,
-      'account':obj.name
-    }).then(balance => {resolve(balance)})
-})}
 
 
 function transfer(obj, to, amount, currency, memo){

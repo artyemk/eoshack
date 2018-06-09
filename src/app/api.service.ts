@@ -26,7 +26,7 @@ export class ApiService {
         if (res && res.errors) {
           reject(res);
         } else {
-          resolve();
+          resolve(res);
         }
       })
     });
@@ -42,5 +42,9 @@ export class ApiService {
 
   createAccount(data) {
     return this.get('/api/create-account', data);
+  }
+
+  getBalance(data) {
+    return this.get('/api/get-balance', data);
   }
 }
