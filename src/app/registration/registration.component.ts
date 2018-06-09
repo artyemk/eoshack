@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Eos } from "../../eos";
+import { ApiService } from "../api.service";
 
 @Component({
   selector: 'app-registration',
@@ -8,9 +8,14 @@ import { Eos } from "../../eos";
   encapsulation: ViewEncapsulation.None
 })
 export class RegistrationComponent implements OnInit {
+  public userName: string;
+  public errorStr: string;
 
   constructor(
-  ) { }
+    public api: ApiService
+  ) {
+
+  }
 
   ngOnInit() {
   }
@@ -18,7 +23,13 @@ export class RegistrationComponent implements OnInit {
   onSubmit(e) {
     e.preventDefault();
 
-    // do something
+    this.api.createAccount({
+      userName: this.userName
+    }).then(res => {
+      console.log(res);
+    }, (res) => {
+      this.errorStr = res.errors[0].message;
+    });
   }
-
 }
+
