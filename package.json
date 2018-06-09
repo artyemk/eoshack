@@ -2,7 +2,7 @@
   "name": "eoshack",
   "version": "1.0.0",
   "description": "",
-  "main": "eosGateway.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/artyemk/eoshack#readme",
   "dependencies": {
-    "eosjs": "^14.1.0"
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "install": "^0.11.0",
+    "npm": "^6.1.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.3"
   }
 }

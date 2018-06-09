@@ -27,7 +27,6 @@ function createAccount(name){
 })
 }
 
-
 function initializeUser(name){
   return new Promise(function(resolve,reject){
      createAccount(name).then(keys => {
