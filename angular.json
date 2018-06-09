@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "eoshack"
+  "defaultProject": "eoshack",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "less"
+    }
+  }
 }
