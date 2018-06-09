@@ -1,13 +1,19 @@
 <div class="registration">
-  <div class="registration__left"></div>
+  <div class="registration__left">
+    <div class="block registration__leftContent">
+      <img class="logo" src="/assets/images/logo.svg">
+      <h1 class="heading">New powers</h1>
+    </div>
+  </div>
   <div class="registration__right">
     <div class="block">
       <form *ngIf="step === 1" class="section" (submit)="onUsernameSubmit($event)">
+        <div class="section__heading">Get started</div>
         <div class="section__row">
           <input class="input" type="text" [(ngModel)]="userName" (ngModelChange)="clearError()" name="username">
         </div>
-        <div class="section__row">
-          <button class="button button-mode-1" type="submit">Next</button>
+        <div class="section__row section__row-mode-1">
+          <button class="button button-mode-1" type="submit">Continue</button>
         </div>
         <div *ngIf="errorStr" class="section__row">
           <div class="section__error" [innerText]="errorStr"></div>
@@ -20,8 +26,8 @@
         <div class="section__row">
           <div class="registration__code" [innerText]="privateKey"></div>
         </div>
-        <div class="section__row">
-          <button class="button button-mode-1" type="submit">Next</button>
+        <div class="section__row section__row-mode-1">
+          <button class="button button-mode-1" type="submit">Continue</button>
         </div>
       </form>
       <form *ngIf="step === 3" class="section" (submit)="checkPrivateKeySubmit($event)">
@@ -31,8 +37,8 @@
         <div class="section__row">
           <input class="input" type="text" [(ngModel)]="checkPrivateKey" name="checkPrivateKey">
         </div>
-        <div class="section__row">
-          <button class="button button-mode-1" type="submit">Next</button>
+        <div class="section__row section__row-mode-1">
+          <button class="button button-mode-1" type="submit">Continue</button>
         </div>
         <div *ngIf="errorStr" class="section__row">
           <div class="section__error" [innerText]="errorStr"></div>
@@ -45,7 +51,7 @@
         <div class="section__row">
           <input class="input" type="password" [(ngModel)]="password" (ngChangeModel)="clearError()" name="password">
         </div>
-        <div class="section__row">
+        <div class="section__row section__row-mode-1">
           <button class="button button-mode-1" type="submit">Finish</button>
         </div>
         <div *ngIf="errorStr" class="section__row">

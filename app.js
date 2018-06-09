@@ -9,12 +9,11 @@ let EOS = require('eosjs');
 let {Keystore, Keygen} = require('eosjs-keygen');
 let binaryen = require('binaryen');
 //let creator_key = '5JT7wmHHwWNXa6SegDc6wsYkk4R6xZs8dr9eYGbMoPnkuE3ZpLe';
-let creator_key = '5JbCQBspuvLUVDPPL9hXSD2ZBDHC7GoCjfNU8zAjsMhAXjBHmmh';
+let creator_key = '5JhVS4jxXj2jJRNCjxryj1SS6QQj4MaQmPjV51FCXqfhyPJ5Fqz';
 //const httpEndpoint = 'http://10.101.2.110:8888';
 const httpEndpoint = 'http://10.101.2.132:8888';
 let create = {
-	//name: 'newuser',
-	name: 'tester',
+	name: 'authorizer',
 	eos_obj: EOS({
 		keyProvider: creator_key,
 		httpEndpoint: httpEndpoint
@@ -59,6 +58,7 @@ router.route('/create-account').get(function(req, res) {
 });
 
 router.route('/get-balance').get(function(req, res) {
+	console.log(req.query.privateKey);
 	let user = {
 		name: req.query.userName,
 		eos_obj: EOS({
@@ -80,6 +80,7 @@ router.route('/get-balance').get(function(req, res) {
 });
 
 function getBalance(user) {
+	console.log(user.name);
 	return new Promise(function(resolve, reject) {
 		user.eos_obj.getCurrencyBalance({
 			'code': 'eosio.token',

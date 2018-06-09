@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_arrow_next_white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sign_up-step1_filled-fields" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1297.000000, -527.000000)">
+        <g id="body" transform="translate(0.000000, -44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="form" transform="translate(830.000000, 436.000000)">
+                <g id="btn_next" transform="translate(367.000000, 117.000000)">
+                    <path d="M103.50173,24 L107.714345,19.6997943 C108.10083,19.3052727 108.094316,18.6721413 107.699794,18.2856557 C107.305273,17.8991701 106.672141,17.9056846 106.285656,18.3002062 L100.285656,24.4249618 C99.899111,24.8195437 99.9056952,25.4527924 100.300361,25.8392517 L106.300361,31.7144956 C106.694966,32.1008958 107.328096,32.0942445 107.714496,31.6996393 C108.100896,31.3050341 108.094245,30.6719041 107.69964,30.2855038 L103.323137,25.9999999 L117,25.9999999 C117.552285,25.9999999 118,25.5522847 118,25 C118,24.4477153 117.552285,24 117,24 L103.50173,24 Z" id="ico_arrow_next_white" transform="translate(109.000000, 25.000000) scale(-1, 1) translate(-109.000000, -25.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -28,6 +28,8 @@ export class RegistrationComponent implements OnInit {
 
   nextStep() {
     this.step++;
+
+    this.errorStr = '';
   }
 
   onUsernameSubmit(e) {

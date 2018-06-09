@@ -14,15 +14,38 @@
 }
 
 .registration__left {
+	background: url('/assets/images/image@2x.png') center no-repeat;
+	background-size: cover;
+}
 
+.registration__leftContent {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.registration__leftContent .logo {
+	position: absolute;
+	top: 30px;
+	left: 30px;
 }
 
 .registration__right {
-
+	display: flex;
+	align-items: center;
 }
 
 .registration__code {
 	height: @inputHeight;
 	line-height: @inputHeight;
 	padding: 0 15px;
+}
+
+.registration__right .section {
+	max-width: 500px;
+}
+
+.registration__right .input {
+	width: 100%;
 }

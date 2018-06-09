@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sign_up--step2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-830.000000, -49.000000)">
+        <g id="header" transform="translate(46.000000, 16.000000)" fill="#5A657A" fill-rule="nonzero">
+            <g id="back" transform="translate(784.000000, 29.000000)">
+                <path d="M3.50173037,10 L7.71434483,5.69979432 C8.10083042,5.30527269 8.09431591,4.67214125 7.69979426,4.28565568 C7.30527262,3.89917011 6.67214117,3.90568462 6.28565558,4.30020625 L0.285655697,10.4249618 C-0.100888965,10.8195437 -0.0943047971,11.4527924 0.300360699,11.8392517 L6.30036059,17.7144956 C6.69496576,18.1008958 7.32809579,18.0942445 7.71449609,17.6996393 C8.10089638,17.3050341 8.09424501,16.6719041 7.69963983,16.2855038 L3.32313674,11.9999999 L17,11.9999999 C17.5522848,11.9999999 18,11.5522847 18,11 C18,10.4477153 17.5522848,10 17,10 L3.50173037,10 Z" id="ico_back"></path>
+            </g>
+        </g>
+    </g>
+</svg>
