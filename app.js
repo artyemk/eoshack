@@ -9,7 +9,7 @@ let EOS = require('eosjs');
 let {Keystore, Keygen} = require('eosjs-keygen');
 let binaryen = require('binaryen');
 //let creator_key = '5JT7wmHHwWNXa6SegDc6wsYkk4R6xZs8dr9eYGbMoPnkuE3ZpLe';
-let creator_key = '5JhVS4jxXj2jJRNCjxryj1SS6QQj4MaQmPjV51FCXqfhyPJ5Fqz';
+let creator_key = '5J2w7H3fyPTSRH8UiHKGWBsW8BEBxLFSZqL1Zf1Bu4KT9Gv5b5F';
 //const httpEndpoint = 'http://10.101.2.110:8888';
 const httpEndpoint = 'http://10.101.2.132:8888';
 let create = {
@@ -58,7 +58,6 @@ router.route('/create-account').get(function(req, res) {
 });
 
 router.route('/get-balance').get(function(req, res) {
-	console.log(req.query.privateKey);
 	let user = {
 		name: req.query.userName,
 		eos_obj: EOS({
@@ -67,11 +66,9 @@ router.route('/get-balance').get(function(req, res) {
 		}, binaryen)
 	};
 
-	getBalance(user).then((res) => {
-		console.log('SUCCESS =============');
-		console.log(res);
+	getBalance(user).then((data) => {
+		res.json(data);
 	}, (err) => {
-		console.log('========================');
 		res.json({
 			//errors: [err.statusText]
 			errors: ['There is no such account']
@@ -80,13 +77,12 @@ router.route('/get-balance').get(function(req, res) {
 });
 
 function getBalance(user) {
-	console.log(user.name);
 	return new Promise(function(resolve, reject) {
 		user.eos_obj.getCurrencyBalance({
-			'code': 'eosio.token',
+			'code': 'tokenizer',
 			'account': user.name
 		}).then(balance => {
-			resolve(balance)
+			resolve(balance);
 		}, error => {
 			reject(error);
 		})
@@ -95,5 +91,4 @@ function getBalance(user) {
 
 app.use('/api', router);
 
-app.listen(port, function() {
-});
+app.listen(port, function() {});

@@ -10,13 +10,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { WalletComponent } from './wallet/wallet.component';
 import { LogoComponent } from './logo/logo.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     WalletComponent,
-    LogoComponent
+    LogoComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

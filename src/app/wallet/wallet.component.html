@@ -1,7 +1,23 @@
-<div class="block">
-  <div class="section">
-    <div *ngIf="errorStr" class="section__row">
-      <div class="section__error" [innerText]="errorStr"></div>
+<div class="wallet">
+  <div class="wallet__l">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="wallet__r">
+    <div class="block">
+      <div class="heading2">Balance</div>
+      <table class="wallet__table">
+        <tr>
+          <td class="wallet__td wallet__td-th">Token</td>
+          <td class="wallet__td wallet__td-th">Rate to BSS</td>
+        </tr>
+        <tr *ngFor="let row of rows">
+          <td class="wallet__td" [innerText]="row.name"></td>
+          <td class="wallet__td" [innerText]="row.value"></td>
+        </tr>
+      </table>
+      <div *ngIf="errorStr" class="section__row">
+        <div class="section__error" [innerText]="errorStr"></div>
+      </div>
     </div>
   </div>
 </div>
