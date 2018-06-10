@@ -1,25 +1,3 @@
-.wallet {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-}
-
-.wallet__l,
-.wallet__r {
-	height: 100vh;
-}
-
-.wallet__l {
-	flex-shrink: 0;
-}
-
-.wallet__r {
-	flex-shrink: 1;
-	width: 100%;
-	padding-top: 100px;
-	padding-left: 50px;
-}
-
 .wallet__table {
 	background: #FFFFFF;
 	box-shadow: 0 2px 4px 0 rgba(66,134,245,0.10);
@@ -37,4 +15,20 @@
 
 .wallet__td-th {
 	background: #DFE3EA;
+}
+
+.wallet__start,
+.wallet__transfer {
+	width: 160px;
+	right: 25px;
+}
+
+.wallet__start {
+	position: absolute;
+	top: 25px;
+}
+
+.wallet__transfer {
+	position: absolute;
+	top: 75px;
 }

@@ -11,6 +11,9 @@ import { FormsModule } from "@angular/forms";
 import { WalletComponent } from './wallet/wallet.component';
 import { LogoComponent } from './logo/logo.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { CrowdfundingComponent } from './crowdfunding/crowdfunding.component';
+import { TransferComponent } from './transfer/transfer.component';
+import { UserService } from "./user.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RegistrationComponent,
     WalletComponent,
     LogoComponent,
-    SidebarComponent
+    SidebarComponent,
+    CrowdfundingComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FormsModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiService } from "../api.service";
+import { UserService } from "../user.service";
 let CryptoJS = require('crypto-js');
 
 @Component({
@@ -14,17 +15,13 @@ export class WalletComponent implements OnInit {
   rows: { name: string; value: number; }[];
 
   constructor(
-    public api: ApiService
+    public api: ApiService,
+    public user: UserService,
   ) { }
 
   ngOnInit() {
-    let enteredPassword = prompt('Enter your password');
-    let encodedPrivateKey = localStorage.getItem('eos_password');
-    let bytes = CryptoJS.AES.decrypt(encodedPrivateKey, enteredPassword);
-    let decodedPrivateKey = bytes.toString(CryptoJS.enc.Utf8);
-
     this.api.getBalance({
-      privateKey: decodedPrivateKey,
+      privateKey: this.user.getPrivateKey(),
       userName: localStorage.getItem('eos_username')
     }).then((res) => {
       this.rows = res.map(item => {

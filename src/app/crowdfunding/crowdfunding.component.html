@@ -1,0 +1,37 @@
+<div class="page">
+  <div class="page__l">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="page__r">
+    <div class="block">
+      <div class="heading2">Start crowdfunding</div>
+      <div class="crowdfunding__content">
+        <div class="crowdfunding__l">
+          <div class="section">
+            <div class="section__row">
+              <div class="section__name">ICO Name</div>
+              <input type="text" class="input crowdfunding__input" placeholder="ICO Name">
+            </div>
+            <div class="section__row">
+              <div class="section__name">Token Name</div>
+              <input type="text" class="input crowdfunding__input" placeholder="Token Name">
+            </div>
+            <div class="section__row">
+              <div class="section__name">Total supply</div>
+              <input type="number" class="input crowdfunding__input" min="0" value="0">
+            </div>
+            <div class="section__row">
+              <button class="button button-mode-2">Start crowdfunding</button>
+            </div>
+          </div>
+        </div>
+        <div class="crowdfunding__r">
+
+        </div>
+      </div>
+      <div *ngIf="errorStr" class="section__row">
+        <div class="section__error" [innerText]="errorStr"></div>
+      </div>
+    </div>
+  </div>
+</div>

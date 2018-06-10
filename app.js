@@ -20,13 +20,14 @@ let create = {
 	}, binaryen)
 };
 
-app.get('/', function(req, res) {
+function returnPage(req, res) {
 	res.send(indexHtml);
-});
+}
 
-app.get('/wallet', function(req, res) {
-	res.send(indexHtml);
-});
+app.get('/', returnPage);
+app.get('/wallet', returnPage);
+app.get('/crowdfunding', returnPage);
+app.get('/transfer', returnPage);
 
 app.use(express.static('dist/eoshack'));
 
@@ -86,6 +87,38 @@ function getBalance(user) {
 		}, error => {
 			reject(error);
 		})
+	})
+}
+
+router.route('/transfer').get(function(req, res) {
+	let user = {
+		name: req.query.userName,
+		eos_obj: EOS({
+			keyProvider: req.query.privateKey,
+			httpEndpoint: httpEndpoint
+		}, binaryen)
+	};
+
+	transfer(user, req.query.receiver, req.query.amount, req.query.currency, req.query.memo).then((data) => {
+		res.json(data);
+	}, (err) => {
+		console.log('===================');
+		console.log(err);
+		/*res.json({
+			//errors: [err.statusText]
+		});*/
+	});
+});
+
+function transfer(obj, to, amount, currency, memo) {
+	console.log(to, amount, currency, memo);
+
+	return new Promise(function(resolve, reject) {
+		obj.eos_obj.transfer(obj.name, to, amount + ' ' + currency, memo).then(tx => {
+			resolve(tx)
+		}, error => {
+			reject(error);
+		});
 	})
 }
 

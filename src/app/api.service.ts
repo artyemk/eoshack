@@ -47,4 +47,8 @@ export class ApiService {
   getBalance(data) {
     return this.get('/api/get-balance', data);
   }
+
+  transfer(data) {
+    return this.get('/api/transfer', data);
+  }
 }

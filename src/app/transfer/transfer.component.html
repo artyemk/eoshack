@@ -1,0 +1,34 @@
+<div class="page">
+  <div class="page__l">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="page__r">
+    <div class="block">
+      <div class="heading2">Transfer</div>
+      <form class="section" (submit)="onSubmit($event)">
+        <div class="section__row">
+          <div class="section__name">Receiver</div>
+          <input type="text" class="input crowdfunding__input" placeholder="Receiver" [(ngModel)]="receiver" name="receiver">
+        </div>
+        <div class="section__row">
+          <div class="section__name">Amount</div>
+          <input type="number" class="input crowdfunding__input" min="0" value="0" step="0.1" [(ngModel)]="amount" name="amount">
+        </div>
+        <div class="section__row">
+          <div class="section__name">Currency</div>
+          <input type="text" class="input crowdfunding__input" placeholder="Currency" [(ngModel)]="currency" name="currency">
+        </div>
+        <div class="section__row">
+          <div class="section__name">Memo</div>
+          <input type="text" class="input crowdfunding__input" placeholder="Memo" [(ngModel)]="memo" name="memo">
+        </div>
+        <div class="section__row">
+          <button class="button button-mode-2">Transfer</button>
+        </div>
+      </form>
+      <div *ngIf="errorStr" class="section__row">
+        <div class="section__error" [innerText]="errorStr"></div>
+      </div>
+    </div>
+  </div>
+</div>
