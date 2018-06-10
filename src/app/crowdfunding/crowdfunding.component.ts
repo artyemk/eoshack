@@ -7,10 +7,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CrowdfundingComponent implements OnInit {
+  acceptedTokens: {name: string; rate: string;}[];
 
   constructor() { }
 
   ngOnInit() {
+    this.acceptedTokens = [];
   }
 
 }

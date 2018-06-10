@@ -26,7 +26,18 @@
           </div>
         </div>
         <div class="crowdfunding__r">
-
+          <div>Accepted tokens</div>
+          <table class="table">
+            <tr>
+              <td class="table__td table__td-th">Token</td>
+              <td class="table__td table__td-th">Rate to BSS</td>
+            </tr>
+            <tr *ngFor="let row of acceptedTokens">
+              <td class="table__td" [innerText]="row.name"></td>
+              <td class="table__td" [innerText]="row.rate"></td>
+            </tr>
+          </table>
+          <button class="button button-mode-3">+ Add token</button>
         </div>
       </div>
       <div *ngIf="errorStr" class="section__row">

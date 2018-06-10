@@ -111,14 +111,44 @@ router.route('/transfer').get(function(req, res) {
 });
 
 function transfer(obj, to, amount, currency, memo) {
-	console.log(to, amount, currency, memo);
+	let amountStr = amount.toString();
+	let numAfterDot = amountStr.split('.').length > 1 ? amountStr.split('.')[1].length : 0;
+	let currencyStr = amountStr;
+
+	if (numAfterDot === 0) {
+		currencyStr += '.000';
+	} else if (numAfterDot < 3) {
+		currencyStr = currencyStr.padEnd(currencyStr.length + 3 - numAfterDot, '0');
+	}
 
 	return new Promise(function(resolve, reject) {
-		obj.eos_obj.transfer(obj.name, to, amount + ' ' + currency, memo).then(tx => {
+		obj.eos_obj.transaction({
+			actions:[
+				{
+					account: 'tokenizer',
+					name: 'transfer',
+					authorization: [{
+						actor: obj.name,
+						permission: 'active'
+					}],
+					data: {
+						to: to,
+						amount: currencyStr  + ' ' + currency,
+						memo: memo
+					}
+				}
+			]
+		}).then((data) => {
+			console.log(data);
+		}, (error) => {
+			reject(error);
+		});
+
+		/*obj.eos_obj.transfer(obj.name, to, amount + ' ' + currency, memo).then(tx => {
 			resolve(tx)
 		}, error => {
 			reject(error);
-		});
+		});*/
 	})
 }
 

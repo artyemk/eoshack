@@ -5,15 +5,19 @@ let CryptoJS = require('crypto-js');
   providedIn: 'root'
 })
 export class UserService {
+  public privateKey: string;
 
   constructor() { }
 
   getPrivateKey() {
-    let enteredPassword = prompt('Enter your password');
-    let encodedPrivateKey = localStorage.getItem('eos_password');
-    let bytes = CryptoJS.AES.decrypt(encodedPrivateKey, enteredPassword);
-    let decodedPrivateKey = bytes.toString(CryptoJS.enc.Utf8);
+    if (!this.privateKey) {
+      let enteredPassword = prompt('Enter your password');
+      let encodedPrivateKey = localStorage.getItem('eos_password');
+      let bytes = CryptoJS.AES.decrypt(encodedPrivateKey, enteredPassword);
 
-    return decodedPrivateKey;
+      this.privateKey = bytes.toString(CryptoJS.enc.Utf8);
+    }
+
+    return this.privateKey;
   }
 }

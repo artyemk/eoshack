@@ -7,14 +7,14 @@
     <a class="button button-mode-2 wallet__transfer" routerLink="/transfer">Transfer</a>
     <div class="block">
       <div class="heading2">Balance</div>
-      <table class="wallet__table">
+      <table class="table">
         <tr>
-          <td class="wallet__td wallet__td-th">Token</td>
-          <td class="wallet__td wallet__td-th">Rate to BSS</td>
+          <td class="table__td table__td-th">Token</td>
+          <td class="table__td table__td-th">Rate to BSS</td>
         </tr>
         <tr *ngFor="let row of rows">
-          <td class="wallet__td" [innerText]="row.name"></td>
-          <td class="wallet__td" [innerText]="row.value"></td>
+          <td class="table__td" [innerText]="row.name"></td>
+          <td class="table__td" [innerText]="row.value"></td>
         </tr>
       </table>
       <div *ngIf="errorStr" class="section__row">
